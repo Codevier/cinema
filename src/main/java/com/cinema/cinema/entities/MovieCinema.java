@@ -23,7 +23,7 @@ public class MovieCinema {
     @JoinColumn(name = "movie_id", nullable = false)
     private Movie movie;
     @JsonFormat(pattern="yyyy-MM-dd")
-    private Date publication_date;
+    private Date publicationDate;
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date end_date;
     //cinema_id

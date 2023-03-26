@@ -4,6 +4,7 @@ import com.cinema.cinema.entities.MovieCinema;
 import com.cinema.cinema.services.MovieCinemaService;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 
 @RestController
@@ -22,9 +23,22 @@ public class MovieCinemaController {
     public MovieCinema getMovieCinemaId(@PathVariable Integer id){
         return movieCinemaService.getMovieCinemaId(id);
     }
+
+    @GetMapping("/moviesPublicationDate")
+    public List<MovieCinema> getMovieCinemaPublicationDate(@PathVariable Date publicationDate){
+        return movieCinemaService.getMovieCinemaPublicationDate(publicationDate);
+    }
+
     @GetMapping
     public List<MovieCinema> findAll(){
         return movieCinemaService.findAll();
     }
+
+    @GetMapping("/movieInCinema")
+    public List<MovieCinema> findAll(@RequestParam  String name,@RequestParam  Integer id){
+        return movieCinemaService.getMovieWithIdCincemaMovieAndNameMovie(name,id);
+    }
+
+
 
 }
