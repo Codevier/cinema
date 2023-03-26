@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
