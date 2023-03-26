@@ -6,15 +6,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="movies")
+@Table(name="cinemas")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class Movie {
+public class Cinema {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private Double duration;
+    private Boolean status;
 }
