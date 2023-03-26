@@ -5,6 +5,8 @@ import com.cinema.cinema.repository.MovieReporsitory;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MovieService {
     private final MovieReporsitory movieReporsitory;
@@ -19,5 +21,9 @@ public class MovieService {
 
     public Movie getMovieById(Integer id){
         return movieReporsitory.findById(id).get();
+    }
+
+    public List<Movie> findAll(){
+        return movieReporsitory.findAll();
     }
 }

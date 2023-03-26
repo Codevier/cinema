@@ -17,5 +17,5 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
-    private Date duracion;
+    private Double duracion;
 }

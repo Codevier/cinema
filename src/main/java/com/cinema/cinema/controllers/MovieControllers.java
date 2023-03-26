@@ -4,6 +4,8 @@ import com.cinema.cinema.entities.Movie;
 import com.cinema.cinema.services.MovieService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/movies")
 public class MovieControllers {
@@ -21,5 +23,10 @@ public class MovieControllers {
     @GetMapping("/{id}")
     public Movie getMovieById(@PathVariable Integer id){
         return  movieService.getMovieById(id);
+    }
+
+    @GetMapping
+    public List<Movie> findAll(){
+        return movieService.findAll();
     }
 }
