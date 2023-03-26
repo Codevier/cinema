@@ -1,11 +1,13 @@
 package com.cinema.cinema.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.sql.Date;
+
 
 @Entity
 @Table(name="MovieCinema")
@@ -17,14 +19,16 @@ public class MovieCinema {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     //movie_id
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="fk_id_movie")
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "movie_id", nullable = false)
     private Movie movie;
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date publication_date;
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date end_date;
     //cinema_id
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="fk_id_cinema")
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "cinema_id", nullable = false)
     private  Cinema cinema;
 
 }
