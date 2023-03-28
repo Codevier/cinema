@@ -42,11 +42,29 @@ public class MovieCinemaController {
 
 
 
-    @GetMapping("/filter")
+    @GetMapping("/filterMovie_nameAndCinema_id")
     public ResponseEntity<List<MovieCinema>> search(@RequestParam("movie_name")  String movie_name, @RequestParam("cinema_id")  Integer cinema_id){
         List<MovieCinema> movieCinemas =movieCinemaService.findAllByMovieNameAndCinemaId(movie_name,cinema_id);
         return ResponseEntity.ok(movieCinemas);
     }
+
+    @GetMapping("/filterPublication_date")
+    public ResponseEntity<List<MovieCinema>> findAllByPublication_date(@RequestParam("publicationDate")  Date publicationDate){
+        List<MovieCinema> movieCinemas =movieCinemaService.findAllByPublication_date(publicationDate);
+        return ResponseEntity.ok(movieCinemas);
+    }
+
+    @GetMapping("/countMovieCinemaPublication_date")
+    public long countByPublicationDate(@RequestParam("publicationDate")  Date publicationDate){
+        return movieCinemaService.countByPublicationDate(publicationDate);
+    }
+
+    @GetMapping("/statusCinemaName")
+    public String statusCinema(@RequestParam("cinemaName")  String cinemaName){
+        return movieCinemaService.statusCinema(cinemaName);
+    }
+
+
 
 
 

@@ -11,15 +11,10 @@ import java.util.List;
 
 @Repository
 public interface MovieCinemaRepository extends JpaRepository<MovieCinema, Integer> {
-
-
-
     List<MovieCinema> findAllByMovieNameAndCinemaId(String movie_name, Integer cinema_id);
 
+    List<MovieCinema> findByPublicationDate(Date publicationDate);
+    long  countByPublicationDate(Date publicationDate);
 
-
-
-
-
-
+    int  countByCinemaName(String cinemaName);
 }

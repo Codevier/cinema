@@ -25,14 +25,41 @@ public class MovieCinemaService {
         return movieCinemaRepository.findById(id).get();
     }
 
-
+    public List<MovieCinema> findAll(){
+        return movieCinemaRepository.findAll();
+    }
 
     public List<MovieCinema> findAllByMovieNameAndCinemaId(String movie_name, Integer cinema_id ){
         return movieCinemaRepository.findAllByMovieNameAndCinemaId(movie_name,cinema_id);
 
     }
 
-    public List<MovieCinema> findAll(){
-        return movieCinemaRepository.findAll();
+    public List<MovieCinema> findAllByPublication_date(Date publicationDate){
+        return movieCinemaRepository.findByPublicationDate(publicationDate);
     }
+
+    public long countByPublicationDate(Date publicationDate){
+        return movieCinemaRepository.countByPublicationDate(publicationDate);
+    }
+
+    public String statusCinema(String cinemaName){
+        int count= movieCinemaRepository.countByCinemaName(cinemaName);
+        if(count<3){
+            return "Sala casi Vacía";
+        }
+        else{
+            if(count<=5){
+                return "Sala casi Llena";
+            }
+            else{
+                return "Sala Llena";
+            }
+        }
+    }
+
+
+
+
+
+
 }
