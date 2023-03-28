@@ -43,8 +43,8 @@ public class MovieCinemaController {
 
 
     @GetMapping("/filter")
-    public ResponseEntity<List<MovieCinema>> search(@RequestParam("name")  String name, @RequestParam("id")  Integer id){
-        List<MovieCinema> movieCinemas =movieCinemaService.search(name,id);
+    public ResponseEntity<List<MovieCinema>> search(@RequestParam("movie_name")  String movie_name, @RequestParam("cinema_id")  Integer cinema_id){
+        List<MovieCinema> movieCinemas =movieCinemaService.findAllByMovieNameAndCinemaId(movie_name,cinema_id);
         return ResponseEntity.ok(movieCinemas);
     }
 

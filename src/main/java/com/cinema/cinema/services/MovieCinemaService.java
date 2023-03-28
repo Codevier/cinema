@@ -27,8 +27,9 @@ public class MovieCinemaService {
 
 
 
-    public List<MovieCinema> search(String name, Integer id ){
-        return movieCinemaRepository.search(name,id);
+    public List<MovieCinema> findAllByMovieNameAndCinemaId(String movie_name, Integer cinema_id ){
+        return movieCinemaRepository.findAllByMovieNameAndCinemaId(movie_name,cinema_id);
+
     }
 
     public List<MovieCinema> findAll(){
